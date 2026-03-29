@@ -51,6 +51,8 @@ npm install
 Create a `.env` file in the root directory and add your Gemini API key:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
+
+[Note: Sometimes the Gemini API may return errors like "fatal error" or "maximum uses" due to high traffic/overload. If this happens, please retry in a few minutes]
 ```
 
 ---
