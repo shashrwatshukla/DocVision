@@ -197,13 +197,6 @@ npm run cli -- compare "invoice_v1.jpg" "invoice_v2.jpg"
 npm run cli -- compare "C:\Users\shash\Downloads\doc1.jpg" "C:\Users\shash\Downloads\doc2.jpg"
 ```
 
-## 📊 Output 
-
-
-```
-
----
-
 
 
 ### 🧠 Neural Analysis (Gemini AI)
@@ -253,82 +246,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 ---
 
-## 🌟 Pro Tips for Developers
 
-### 💡 Performance Optimization
-```bash
-# Process multiple documents in parallel
-ls *.jpg | xargs -P 4 -I {} npm start -- {}
-
-# Reduce memory usage
-NODE_OPTIONS="--max-old-space-size=2048" npm start -- "large_doc.pdf"
-```
-
-### 🔒 API Key Management
-```bash
-# Use environment variables directly
-GEMINI_API_KEY=your_key npm start -- "doc.jpg"
-
-# Temporary session keys
-export GEMINI_API_KEY=temp_key
-npm start -- "temp_doc.jpg"
-unset GEMINI_API_KEY
-```
-
-### 🐞 Debugging Guide
-```bash
-# Check preprocessing output
-npx sharp "problem.jpg" \
-  --grayscale \
-  --clahe 4,8 \
-  --gamma 1.2 \
-  --sharpen \
-  -o "optimized.jpg"
-
-# Debug Gemini API calls
-DEBUG=gemini:* npm start -- "debug.jpg"
-```
-
----
-
-## 🤝 Contributing
-
-```bash
-# Setup development environment
-npm install -g typescript
-npm install --include=dev
-
-# Run tests
-npm test
-
-# Build production version
-npm run build
-
-# Submit PR
-git checkout -b feat/new-feature
-git commit -m "feat: add new feature"
-git push origin feat/new-feature
-```
-
----
-
-## 🆘 Support
-
-### **📚 Documentation & Help**
-
-#### **Support Channels**
-- 📧 **Email**: [your.email@example.com](mailto:your.email@example.com)
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/your-username/docvision-x-cli/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/your-username/docvision-x-cli/discussions)
-- 📖 **Documentation**: [docs.docvisionx.com](https://docs.docvisionx.com)
-
-#### **Resources**
-- 📖 **User Guide** - Complete CLI reference
-- ❓ **FAQ** - Common troubleshooting
-- 🎥 **Terminal Demos** - Step-by-step guides
-- 💬 **Community Slack** - Real-time help
-
----
 
 ## 🙏 Acknowledgments
 
