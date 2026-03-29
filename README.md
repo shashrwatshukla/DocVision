@@ -123,67 +123,79 @@ docvision-x-cli/
 
 ## 🚀 Quick Start Guide
 
-### Prerequisites
-```bash
-# Verify Node.js (v18+)
-node -v
-# v18.0.0
+### 1. Prerequisites
+- **Node.js**: v18 or higher.
+- **npm**: v9 or higher.
 
-# Verify npm (v9+)
-npm -v
-# 9.0.0
-```
-
-### ⚡ Installation
+### 2. Installation
 ```bash
-# Clone repository
-git clone https://github.com/your-username/docvision-x-cli.git
+# Clone the repository
+git clone https://github.com/your-username/docvision-x-cli
 cd docvision-x-cli
 
 # Install dependencies
-npm install 
-
-# Create configuration
-echo "GEMINI_API_KEY=your_key_here" > .env
+npm install
 ```
 
-> ⚠️ **Critical Note**:  
-> Gemini API may return `429 Too Many Requests`/fatal error during peak hours.
-> WAIT AND RETRY FEW MINUTES LATER
+### 3. Configuration
+Create a `.env` file in the root directory and add your Gemini API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+
+[Note: Sometimes the Gemini API may return errors like "fatal error" or "maximum uses" due to high traffic/overload. If this happens, please retry in a few minutes]
+```
 
 ---
 
-## 💻 Command Reference
+## 💻 Usage & Commands
 
-### 📊 Command Matrix
-| **Command**   | **Use Case**                          | **Unix Example**                                      | **Windows Example**                                                                 |
-|---------------|---------------------------------------|-------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `analyze`     | Full document intelligence            | `npm start -- "invoice.jpg" --verbose --output results.json` | `npm start -- "C:\Users\shash\Downloads\invoice.jpg" --verbose --output results.json` |
-| `ask`         | Extract specific information          | `npm run cli -- ask "receipt.png" "Total amount due?"`     | `npm run cli -- ask "C:\Users\shash\Downloads\receipt.png" "Total amount due?"`     |
-| `compare`     | Detect document changes               | `npm run cli -- compare "v1.jpg" "v2.jpg"`                | `npm run cli -- compare "C:\old.jpg" "C:\new.jpg"`                                  |
+### 1. Analyze Document (`analyze`)
+This is the primary command. It preprocesses the image and performs a full neural scan.
 
-### 🔍 Deep Dive: `analyze` Command
+**Example:**
 ```bash
-# Basic usage
-npm start -- "path/to/document.jpg"
+# Basic analysis
+npm start -- "path/to/invoice.jpg"
 
-# Advanced features
-npm start -- "scanned_contract.png" \
-  --verbose \          # Show preprocessing steps
-  --output report.json \  # Save structured results
-  --forgery-scan       # Enable tamper detection
-```
-
-### 🌐 Windows Path Handling
-```bash
-# Proper Windows path formatting
+# Example (Windows)
 npm start -- "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg"
 
-# With output
-npm run cli -- ask "C:\Users\shash\Downloads\doc.jpg" "What is the invoice date?" --output question.json
+# Advanced analysis with verbose output and JSON export
+npm start -- "path/to/document.png" --verbose --output result.json
+
+# Example (Windows)
+npm start -- "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" --verbose --output result.json
 ```
 
----
+### 2. Document Q&A (`ask`)
+Ask specific questions about the content of a document.
+
+**Example:**
+```bash
+# Ask about a specific value
+npm run cli -- ask "path/to/receipt.jpg" "What is the total amount including tax?"
+
+# Example (Windows)
+npm run cli -- ask "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" "What is the total amount including tax?"
+
+# Ask about a date
+npm run cli -- ask "path/to/contract.pdf.png" "When does this agreement expire?"
+
+# Example (Windows)
+npm run cli -- ask "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" "What is the invoice date?"
+```
+
+### 3. Document Comparison (`compare`)
+Compare two document images to find similarities and differences.
+
+**Example:**
+```bash
+# Compare two versions of a document
+npm run cli -- compare "invoice_v1.jpg" "invoice_v2.jpg"
+
+# Example (Windows)
+npm run cli -- compare "C:\Users\shash\Downloads\doc1.jpg" "C:\Users\shash\Downloads\doc2.jpg"
+```
 
 ## 📊 Output 
 
@@ -192,19 +204,7 @@ npm run cli -- ask "C:\Users\shash\Downloads\doc.jpg" "What is the invoice date?
 
 ---
 
-## 🛠️ Neural Pipeline Architecture
 
-### 🔧 Local Preprocessing (CV Engine)
-```mermaid
-flowchart LR
-    A[Input Image] --> B[Grayscale Conversion]
-    B --> C[CLAHE Normalization]
-    C --> D[Gamma Correction]
-    D --> E[Adaptive Sharpening]
-    E --> F[Optimized Image]
-    style A fill:#feca57,stroke:#333
-    style F fill:#1dd1a1,stroke:#333
-```
 
 ### 🧠 Neural Analysis (Gemini AI)
 | **Layer**               | **Technology**                     | **Output**                                  |
@@ -225,10 +225,7 @@ Create a `.env` file in root directory:
 # Gemini API Key (Required)
 GEMINI_API_KEY=your_gemini_api_key_here
 
-# Optional: Custom preprocessing parameters
-PREPROCESS_CLAHE_CLIP=4.0
-PREPROCESS_GAMMA=1.2
-PREPROCESS_SHARPEN_RADIUS=1.5
+
 ```
 
 > ⚠️ **Never commit `.env`!** Add to `.gitignore`:
