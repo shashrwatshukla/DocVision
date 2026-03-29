@@ -65,8 +65,14 @@ This is the primary command. It preprocesses the image and performs a full neura
 # Basic analysis
 npm start -- "path/to/invoice.jpg"
 
+# Example (Windows)
+npm start -- "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg"
+
 # Advanced analysis with verbose output and JSON export
 npm start -- "path/to/document.png" --verbose --output result.json
+
+# Example (Windows)
+npm start -- "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" --verbose --output result.json
 ```
 
 ### 2. Document Q&A (`ask`)
@@ -77,8 +83,14 @@ Ask specific questions about the content of a document.
 # Ask about a specific value
 npm run cli -- ask "path/to/receipt.jpg" "What is the total amount including tax?"
 
+# Example (Windows)
+npm run cli -- ask "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" "What is the total amount including tax?"
+
 # Ask about a date
 npm run cli -- ask "path/to/contract.pdf.png" "When does this agreement expire?"
+
+# Example (Windows)
+npm run cli -- ask "C:\Users\shash\Downloads\WhatsApp Image 2026-03-28 at 11.24.58 PM.jpeg" "What is the invoice date?"
 ```
 
 ### 3. Document Comparison (`compare`)
@@ -88,6 +100,9 @@ Compare two document images to find similarities and differences.
 ```bash
 # Compare two versions of a document
 npm run cli -- compare "invoice_v1.jpg" "invoice_v2.jpg"
+
+# Example (Windows)
+npm run cli -- compare "C:\Users\shash\Downloads\doc1.jpg" "C:\Users\shash\Downloads\doc2.jpg"
 ```
 
 ---
