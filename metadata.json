@@ -1,0 +1,7 @@
+{
+  "name": "DocVision X CLI",
+  "description": "Neural Document Intelligence CLI Tool for OCR, Forgery Detection, and Smart Field Extraction.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
